@@ -1,15 +1,16 @@
-AmazonRedshift
-==============
+Amazon Redshift
+===============
 
 Description
 -----------
 This presentation summarizes [Amazon Redshift](https://aws.amazon.com/redshift/ "Amazon Redshift") data warehouse service, its architecture and best practices for 
 application development using Amazon Redshift.
 
-##Usage
+Usage
+-----
 
 - Clone the repository.
-- Open `index.html` in your fav browser. Use arrow keys to navigate.
+- Open `index.html` in your browser. Use arrow keys to navigate.
 
 License
 -------

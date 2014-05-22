@@ -41,29 +41,116 @@
 
 <div class="reveal">
 
-<!-- Any section element inside of this container is displayed as a slide -->
-<div class="slides">
-<section>
-    <h1>Introduction to Amazon Redshift</h1>
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>Introduction to Amazon Redshift</h1>
 
-    <h3>May, 2014</h3>
+            <h3>May, 2014</h3>
 
-    <p>
-        <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
-            href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
-    </p>
-</section>
+            <p>
+                <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
+                    href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
+            </p>
+        </section>
 
-<section>
-</section>
+        <section>
+            <h2>What's Amazon Redshift?</h2>
+            <blockquote>
+                Amazon Redshift is a fast and powerful, fully managed, petabyte-scale data warehouse service in the
+                cloud
+            </blockquote>
+        </section>
 
-<section data-state="soothe">
-    <h1>THE END</h1>
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li class="fragment roll-in">Petabyte scale, massively parallel</li>
+                <li class="fragment roll-in">Relational data warehouse</li>
+                <li class="fragment roll-in">Fully managed, zero admin</li>
+                <li class="fragment roll-in">SSD and HDD platforms</li>
+                <li class="fragment roll-in">$999/TB/Year</li>
+            </ul>
+        </section>
 
-    <h3>by Abdullah Cetin CAVDAR / @accavdar</h3>
-</section>
+        <section>
+            <section>
+                <h2>Architecture</h2>
+                <img src="img/rs_arhitecture.png"/>
+            </section>
 
-</div>
+            <section>
+                <h2>Client Applications</h2>
+                <ul>
+                    <li class="fragment roll-in">Integrates with various <span class="focus">data loading</span>
+                        and <span class="focus">ETL (Extract, Transform, and
+                        Load) tools</span> and <span class="focus">business intelligence (BI) reporting</span>, <span
+                                class="focus">data mining</span>, and <span class="focus">analytics tools</span>
+                    </li>
+                    <li class="fragment roll-in">Redshift is based on industry-standard <span
+                            class="focus">PostgreSQL</span>, so most existing SQL
+                        client applications will work with only minimal changes
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Connections</h2>
+                <ul>
+                    <li class="fragment roll-in">Redshift communicates with client applications by using
+                        industry-standard <span class="focus">PostgreSQL JDBC</span> and <span class="focus">ODBC</span> drivers
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Clusters</h2>
+                <ul>
+                    <li class="fragment roll-in">A cluster is composed of <span class="focus">one</span> or <span class="focus">more compute nodes</span></li>
+                    <li class="fragment roll-in"><span class="focus">Leader Node</span> coordinates the compute nodes and handles external
+                        communication
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Leader Node</h2>
+                <ul>
+                    <li class="fragment roll-in">Manage communications with client programs and communications with
+                        compute nodes
+                    </li>
+                    <li class="fragment roll-in">Store metadata</li>
+                    <li class="fragment roll-in">Coordinate query execution</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Compute Nodes</h2>
+                <ul>
+                    <li class="fragment roll-in">Execute the compiled code send intermediate results back to the leader node for final aggregation</li>
+                    <li class="fragment roll-in">It has own dedicated CPU, memory, and attached disk storage, which are determined by the node type</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Databases</h2>
+                <ul>
+                    <li class="fragment roll-in">A cluster contains one or more databases</li>
+                    <li class="fragment roll-in">User data is stored on the compute nodes</li>
+                    <li class="fragment roll-in">Amazon Redshift is a relational database management system (RDBMS)</li>
+                    <li class="fragment roll-in">Amazon Redshift is optimized for high-performance analysis and reporting of very large datasets</li>
+                    <li class="fragment roll-in">Amazon Redshift is based on PostgreSQL</li>
+                </ul>
+            </section>
+        </section>
+
+        <section data-state="soothe">
+            <h1>THE END</h1>
+
+            <h3>by Abdullah Cetin CAVDAR / @accavdar</h3>
+        </section>
+
+    </div>
 
 </div>
 
