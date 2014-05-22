@@ -18,10 +18,8 @@
     <link rel="stylesheet" href="reveal/css/theme/night.css" id="theme">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- For syntax highlighting -->
     <link rel="stylesheet" href="reveal/lib/css/zenburn.css">
 
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
         if (window.location.search.match(/print-pdf/gi)) {
             var link = document.createElement('link');
@@ -32,16 +30,13 @@
         }
     </script>
 
-    <!--[if lt IE 9]>
     <script src="reveal/lib/js/html5shiv.js"></script>
-    <![endif]-->
 </head>
 
 <body>
 
 <div class="reveal">
 
-    <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
             <h1>Introduction to Amazon Redshift</h1>
@@ -98,7 +93,8 @@
                 <h2>Connections</h2>
                 <ul>
                     <li class="fragment roll-in">Redshift communicates with client applications by using
-                        industry-standard <span class="focus">PostgreSQL JDBC</span> and <span class="focus">ODBC</span> drivers
+                        industry-standard <span class="focus">PostgreSQL JDBC</span> and <span class="focus">ODBC</span>
+                        drivers
                     </li>
                 </ul>
             </section>
@@ -106,8 +102,10 @@
             <section>
                 <h2>Clusters</h2>
                 <ul>
-                    <li class="fragment roll-in">A cluster is composed of <span class="focus">one</span> or <span class="focus">more compute nodes</span></li>
-                    <li class="fragment roll-in"><span class="focus">Leader Node</span> coordinates the compute nodes and handles external
+                    <li class="fragment roll-in">A cluster is composed of <span class="focus">one</span> or <span
+                            class="focus">more compute nodes</span></li>
+                    <li class="fragment roll-in"><span class="focus">Leader Node</span> coordinates the compute nodes
+                        and handles external
                         communication
                     </li>
                 </ul>
@@ -127,8 +125,12 @@
             <section>
                 <h2>Compute Nodes</h2>
                 <ul>
-                    <li class="fragment roll-in">Execute the compiled code send intermediate results back to the leader node for final aggregation</li>
-                    <li class="fragment roll-in">It has own dedicated CPU, memory, and attached disk storage, which are determined by the node type</li>
+                    <li class="fragment roll-in">Execute the compiled code send intermediate results back to the leader
+                        node for final aggregation
+                    </li>
+                    <li class="fragment roll-in">It has own dedicated CPU, memory, and attached disk storage, which are
+                        determined by the node type
+                    </li>
                 </ul>
             </section>
 
@@ -138,10 +140,96 @@
                     <li class="fragment roll-in">A cluster contains one or more databases</li>
                     <li class="fragment roll-in">User data is stored on the compute nodes</li>
                     <li class="fragment roll-in">Amazon Redshift is a relational database management system (RDBMS)</li>
-                    <li class="fragment roll-in">Amazon Redshift is optimized for high-performance analysis and reporting of very large datasets</li>
+                    <li class="fragment roll-in">Amazon Redshift is optimized for high-performance analysis and
+                        reporting of very large datasets
+                    </li>
                     <li class="fragment roll-in">Amazon Redshift is based on PostgreSQL</li>
                 </ul>
             </section>
+        </section>
+
+        <section>
+            <h2>Redshift reduces I/O</h2>
+            <ul>
+                <li class="fragment roll-in">Column storage - read data you need</li>
+                <li class="fragment roll-in">Data compression - Analyzes and compress your data</li>
+                <li class="fragment roll-in">
+                    Zone Map
+                    <ul>
+                        <li>Keep track of minimum and maximum value for each block</li>
+                        <li>Skip over blocks that don't contain data needed for a given query</li>
+                        <li>Minimize unnecessary I/O</li>
+                    </ul>
+                </li>
+                <li class="fragment roll-in">
+                    Direct attached storage
+                    <ul>
+                        <li>Hardware optimized for high performance data processing</li>
+                    </ul>
+                </li>
+                <li class="fragment roll-in">
+                    Large data block sizes
+                    <ul>
+                        <li>Large block sizes to make the most of each read</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Redshift runs on optimized hardware</h2>
+            <ul>
+                <li class="fragment roll-in">Optimized for I/O intensive workloads</li>
+                <li class="fragment roll-in">High disk density</li>
+                <li class="fragment roll-in">Runs in HPC - fast network</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Redshift parallelizes and distributes everything</h2>
+            <ul>
+                <li class="fragment roll-in">Query</li>
+                <li class="fragment roll-in">Load</li>
+                <li class="fragment roll-in">Backup/Restore</li>
+                <li class="fragment roll-in">Resize</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Redshift is easy to use</h2>
+            <ul>
+                <li class="fragment roll-in">Provision in minutes</li>
+                <li class="fragment roll-in">Monitor query performance</li>
+                <li class="fragment roll-in">Point and click resize</li>
+                <li class="fragment roll-in">Built in security</li>
+                <li class="fragment roll-in">Automatic backups</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Redshift has security built-in</h2>
+            <ul>
+                <li class="fragment roll-in">SSL to secure data in transit</li>
+                <li class="fragment roll-in">
+                    Encryption to secure data at rest
+                    <ul>
+                        <li>AES 256 - hardware accelerated</li>
+                        <li>All blocks on disk and in Amazon S3 encrypted</li>
+                    </ul>
+                </li>
+                <li class="fragment roll-in">No direct access to compute nodes</li>
+                <li class="fragment roll-in">Amazon VPC support</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Redshift Backup</h2>
+            <ul>
+                <li class="fragment roll-in">Replication within the cluster and backup to Amazon S3</li>
+                <li class="fragment roll-in">Backup to Amazon S3 are continuous, automatic and incremental</li>
+                <li class="fragment roll-in">Continuous monitoring and automated recovery from failures</li>
+                <li class="fragment roll-in">Able to restore snapshots to any Availability Zone</li>
+            </ul>
         </section>
 
         <section data-state="soothe">
@@ -158,23 +246,15 @@
 <script src="reveal/js/reveal.min.js"></script>
 
 <script>
-
-    // Full list of configuration options available here:
-    // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
         controls: true,
         progress: true,
         history: true,
         center: true,
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+        theme: Reveal.getQueryHash().theme,
+        transition: Reveal.getQueryHash().transition || 'zoom',
 
-        // Parallax scrolling
-        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-        // parallaxBackgroundSize: '2100px 900px',
-
-        // Optional libraries used to extend on reveal.js
         dependencies: [
             { src: 'reveal/lib/js/classList.js', condition: function () {
                 return !document.body.classList;
