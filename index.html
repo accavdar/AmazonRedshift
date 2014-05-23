@@ -223,7 +223,7 @@
 </section>
 
 <section>
-    <h2>Redshift backup features</h2>
+    <h2>Redshift backs up your data and recovers from failures</h2>
     <ul>
         <li class="fragment roll-in">Replication within the cluster and backup to Amazon S3</li>
         <li class="fragment roll-in">Backup to Amazon S3 are continuous, automatic and incremental</li>
@@ -263,6 +263,53 @@
             <li class="fragment roll-in">Reduce HW and SW costs by an order of magnitude</li>
         </ul>
     </section>
+</section>
+
+<section>
+    <section>
+        <h2><a href="http://www.skillpages.com/" title="skillpages">skillpages</a> Use Case</h2>
+    </section>
+
+    <section>
+        <h2>Data Architecture</h2>
+        <img src="img/skillpages_da.png"/>
+    </section>
+
+    <section>
+        <h2>Redshift Implementation</h2>
+        <ul>
+            <li class="fragment roll-in">High Storage Extra Large (XL) DW Node</li>
+            <li class="fragment roll-in">
+                ETL Activities
+                <ul>
+                    <li>Approx. 90 minutes including exports from RDBMS, copying to S3, loading stage tables, loading
+                        target tables, vacuuming and analysing tables
+                    </li>
+                </ul>
+            </li>
+            <li class="fragment roll-in">Schema</li>
+            <li class="fragment roll-in">Compression</li>
+            <li class="fragment roll-in">Retention</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>DW Anatomy</h2>
+        <img src="img/skillpages_dw.png"/>
+    </section>
+
+    <section>
+        <h2>Why Redshift?</h2>
+        <ul>
+            <li class="fragment roll-in">Scale - MPP</li>
+            <li class="fragment roll-in">Performance - Columnar data access and compression</li>
+            <li class="fragment roll-in">Platform Integration - S3, Dynamo</li>
+            <li class="fragment roll-in">Operational Advantages</li>
+            <li class="fragment roll-in">Ease of Access</li>
+            <li class="fragment roll-in">Cost</li>
+        </ul>
+    </section>
+
 </section>
 
 <section>
