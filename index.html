@@ -37,241 +37,263 @@
 
 <div class="reveal">
 
-    <div class="slides">
-        <section>
-            <h1>Introduction to Amazon Redshift</h1>
+<div class="slides">
+<section>
+    <h1>Introduction to Amazon Redshift</h1>
 
-            <h3>May, 2014</h3>
+    <h3>May, 2014</h3>
 
-            <p>
-                <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
-                    href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
-            </p>
-        </section>
+    <p>
+        <a href="http://www.linkedin.com/in/accavdar" target="_blank">Abdullah Cetin CAVDAR</a> / <a
+            href="http://twitter.com/accavdar" target="_blank">@accavdar</a>
+    </p>
+</section>
 
-        <section>
-            <h2>What's Amazon Redshift?</h2>
-            <blockquote>
-                Amazon Redshift is a fast and powerful, fully managed, petabyte-scale data warehouse service in the
-                cloud
-            </blockquote>
-        </section>
+<section>
+    <h2>What's Amazon Redshift?</h2>
+    <blockquote>
+        Amazon Redshift is a fast and powerful, fully managed, petabyte-scale data warehouse service in the
+        cloud
+    </blockquote>
+</section>
 
-        <section>
-            <h2>Features</h2>
-            <ul>
-                <li class="fragment roll-in">Petabyte scale, massively parallel</li>
-                <li class="fragment roll-in">Relational data warehouse</li>
-                <li class="fragment roll-in">Fully managed, zero admin</li>
-                <li class="fragment roll-in">SSD and HDD platforms</li>
-                <li class="fragment roll-in">$999/TB/Year</li>
-            </ul>
-        </section>
+<section>
+    <h2>Features</h2>
+    <ul>
+        <li class="fragment roll-in">Petabyte scale, massively parallel</li>
+        <li class="fragment roll-in">Relational data warehouse</li>
+        <li class="fragment roll-in">Fully managed, zero admin</li>
+        <li class="fragment roll-in">SSD and HDD platforms</li>
+        <li class="fragment roll-in">$999/TB/Year</li>
+    </ul>
+</section>
 
-        <section>
-            <section>
-                <h2>Architecture</h2>
-                <img src="img/rs_arhitecture.png"/>
-            </section>
+<section>
+    <section>
+        <h2>Architecture</h2>
+        <img src="img/rs_arhitecture.png"/>
+    </section>
 
-            <section>
-                <h2>Client Applications</h2>
-                <ul>
-                    <li class="fragment roll-in">Integrates with various <span class="focus">data loading</span>
-                        and <span class="focus">ETL (Extract, Transform, and
+    <section>
+        <h2>Client Applications</h2>
+        <ul>
+            <li class="fragment roll-in">Integrates with various <span class="focus">data loading</span>
+                and <span class="focus">ETL (Extract, Transform, and
                         Load) tools</span> and <span class="focus">business intelligence (BI) reporting</span>, <span
-                                class="focus">data mining</span>, and <span class="focus">analytics tools</span>
-                    </li>
-                    <li class="fragment roll-in">Redshift is based on industry-standard <span
-                            class="focus">PostgreSQL</span>, so most existing SQL
-                        client applications will work with only minimal changes
-                    </li>
-                </ul>
-            </section>
+                        class="focus">data mining</span>, and <span class="focus">analytics tools</span>
+            </li>
+            <li class="fragment roll-in">Redshift is based on industry-standard <span
+                    class="focus">PostgreSQL</span>, so most existing SQL
+                client applications will work with only minimal changes
+            </li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Connections</h2>
-                <ul>
-                    <li class="fragment roll-in">Redshift communicates with client applications by using
-                        industry-standard <span class="focus">PostgreSQL JDBC</span> and <span class="focus">ODBC</span>
-                        drivers
-                    </li>
-                </ul>
-            </section>
+    <section>
+        <h2>Connections</h2>
+        <ul>
+            <li class="fragment roll-in">Redshift communicates with client applications by using
+                industry-standard <span class="focus">PostgreSQL JDBC</span> and <span class="focus">ODBC</span>
+                drivers
+            </li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Clusters</h2>
-                <ul>
-                    <li class="fragment roll-in">A cluster is composed of <span class="focus">one</span> or <span
-                            class="focus">more compute nodes</span></li>
-                    <li class="fragment roll-in"><span class="focus">Leader Node</span> coordinates the compute nodes
-                        and handles external
-                        communication
-                    </li>
-                </ul>
-            </section>
+    <section>
+        <h2>Clusters</h2>
+        <ul>
+            <li class="fragment roll-in">A cluster is composed of <span class="focus">one</span> or <span
+                    class="focus">more compute nodes</span></li>
+            <li class="fragment roll-in"><span class="focus">Leader Node</span> coordinates the compute nodes
+                and handles external
+                communication
+            </li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Leader Node</h2>
-                <ul>
-                    <li class="fragment roll-in">Manage communications with client programs and communications with
-                        compute nodes
-                    </li>
-                    <li class="fragment roll-in">Store metadata</li>
-                    <li class="fragment roll-in">Coordinate query execution</li>
-                </ul>
-            </section>
+    <section>
+        <h2>Leader Node</h2>
+        <ul>
+            <li class="fragment roll-in">Manage communications with client programs and communications with
+                compute nodes
+            </li>
+            <li class="fragment roll-in">Store metadata</li>
+            <li class="fragment roll-in">Coordinate query execution</li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Compute Nodes</h2>
-                <ul>
-                    <li class="fragment roll-in">Execute the compiled code send intermediate results back to the leader
-                        node for final aggregation
-                    </li>
-                    <li class="fragment roll-in">It has own dedicated CPU, memory, and attached disk storage, which are
-                        determined by the node type
-                    </li>
-                </ul>
-            </section>
+    <section>
+        <h2>Compute Nodes</h2>
+        <ul>
+            <li class="fragment roll-in">Execute the compiled code send intermediate results back to the leader
+                node for final aggregation
+            </li>
+            <li class="fragment roll-in">It has own dedicated CPU, memory, and attached disk storage, which are
+                determined by the node type
+            </li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Databases</h2>
-                <ul>
-                    <li class="fragment roll-in">A cluster contains one or more databases</li>
-                    <li class="fragment roll-in">User data is stored on the compute nodes</li>
-                    <li class="fragment roll-in">Amazon Redshift is a relational database management system (RDBMS)</li>
-                    <li class="fragment roll-in">Amazon Redshift is optimized for high-performance analysis and
-                        reporting of very large datasets
-                    </li>
-                    <li class="fragment roll-in">Amazon Redshift is based on PostgreSQL</li>
-                </ul>
-            </section>
-        </section>
+    <section>
+        <h2>Databases</h2>
+        <ul>
+            <li class="fragment roll-in">A cluster contains one or more databases</li>
+            <li class="fragment roll-in">User data is stored on the compute nodes</li>
+            <li class="fragment roll-in">Amazon Redshift is a relational database management system (RDBMS)</li>
+            <li class="fragment roll-in">Amazon Redshift is optimized for high-performance analysis and
+                reporting of very large datasets
+            </li>
+            <li class="fragment roll-in">Amazon Redshift is based on PostgreSQL</li>
+        </ul>
+    </section>
+</section>
 
-        <section>
-            <h2>Redshift reduces I/O</h2>
+<section>
+    <h2>Redshift reduces I/O</h2>
+    <ul>
+        <li class="fragment roll-in">Column storage - read data you need</li>
+        <li class="fragment roll-in">Data compression - Analyzes and compress your data</li>
+        <li class="fragment roll-in">
+            Zone Map
             <ul>
-                <li class="fragment roll-in">Column storage - read data you need</li>
-                <li class="fragment roll-in">Data compression - Analyzes and compress your data</li>
-                <li class="fragment roll-in">
-                    Zone Map
-                    <ul>
-                        <li>Keep track of minimum and maximum value for each block</li>
-                        <li>Skip over blocks that don't contain data needed for a given query</li>
-                        <li>Minimize unnecessary I/O</li>
-                    </ul>
-                </li>
-                <li class="fragment roll-in">
-                    Direct attached storage
-                    <ul>
-                        <li>Hardware optimized for high performance data processing</li>
-                    </ul>
-                </li>
-                <li class="fragment roll-in">
-                    Large data block sizes
-                    <ul>
-                        <li>Large block sizes to make the most of each read</li>
-                    </ul>
-                </li>
+                <li>Keep track of minimum and maximum value for each block</li>
+                <li>Skip over blocks that don't contain data needed for a given query</li>
+                <li>Minimize unnecessary I/O</li>
             </ul>
-        </section>
-
-        <section>
-            <h2>Redshift runs on optimized hardware</h2>
+        </li>
+        <li class="fragment roll-in">
+            Direct attached storage
             <ul>
-                <li class="fragment roll-in">Optimized for I/O intensive workloads</li>
-                <li class="fragment roll-in">High disk density</li>
-                <li class="fragment roll-in">Runs in HPC - fast network</li>
+                <li>Hardware optimized for high performance data processing</li>
             </ul>
-        </section>
-
-        <section>
-            <h2>Redshift parallelizes and distributes everything</h2>
+        </li>
+        <li class="fragment roll-in">
+            Large data block sizes
             <ul>
-                <li class="fragment roll-in">Query</li>
-                <li class="fragment roll-in">Load</li>
-                <li class="fragment roll-in">Backup/Restore</li>
-                <li class="fragment roll-in">Resize</li>
+                <li>Large block sizes to make the most of each read</li>
             </ul>
-        </section>
+        </li>
+    </ul>
+</section>
 
-        <section>
-            <h2>Redshift is easy to use</h2>
+<section>
+    <h2>Redshift runs on optimized hardware</h2>
+    <ul>
+        <li class="fragment roll-in">Optimized for I/O intensive workloads</li>
+        <li class="fragment roll-in">High disk density</li>
+        <li class="fragment roll-in">Runs in HPC - fast network</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Redshift parallelizes and distributes everything</h2>
+    <ul>
+        <li class="fragment roll-in">Query</li>
+        <li class="fragment roll-in">Load</li>
+        <li class="fragment roll-in">Backup/Restore</li>
+        <li class="fragment roll-in">Resize</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Redshift is easy to use</h2>
+    <ul>
+        <li class="fragment roll-in">Provision in minutes</li>
+        <li class="fragment roll-in">Monitor query performance</li>
+        <li class="fragment roll-in">Point and click resize</li>
+        <li class="fragment roll-in">Built in security</li>
+        <li class="fragment roll-in">Automatic backups</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Redshift has security built-in</h2>
+    <ul>
+        <li class="fragment roll-in">SSL to secure data in transit</li>
+        <li class="fragment roll-in">
+            Encryption to secure data at rest
             <ul>
-                <li class="fragment roll-in">Provision in minutes</li>
-                <li class="fragment roll-in">Monitor query performance</li>
-                <li class="fragment roll-in">Point and click resize</li>
-                <li class="fragment roll-in">Built in security</li>
-                <li class="fragment roll-in">Automatic backups</li>
+                <li>AES 256 - hardware accelerated</li>
+                <li>All blocks on disk and in Amazon S3 encrypted</li>
             </ul>
-        </section>
+        </li>
+        <li class="fragment roll-in">No direct access to compute nodes</li>
+        <li class="fragment roll-in">Amazon VPC support</li>
+    </ul>
+</section>
 
-        <section>
-            <h2>Redshift has security built-in</h2>
-            <ul>
-                <li class="fragment roll-in">SSL to secure data in transit</li>
-                <li class="fragment roll-in">
-                    Encryption to secure data at rest
-                    <ul>
-                        <li>AES 256 - hardware accelerated</li>
-                        <li>All blocks on disk and in Amazon S3 encrypted</li>
-                    </ul>
-                </li>
-                <li class="fragment roll-in">No direct access to compute nodes</li>
-                <li class="fragment roll-in">Amazon VPC support</li>
-            </ul>
-        </section>
+<section>
+    <h2>Redshift backup features</h2>
+    <ul>
+        <li class="fragment roll-in">Replication within the cluster and backup to Amazon S3</li>
+        <li class="fragment roll-in">Backup to Amazon S3 are continuous, automatic and incremental</li>
+        <li class="fragment roll-in">Continuous monitoring and automated recovery from failures</li>
+        <li class="fragment roll-in">Able to restore snapshots to any Availability Zone</li>
+    </ul>
+</section>
 
-        <section>
-            <h2>Redshift backup features</h2>
-            <ul>
-                <li class="fragment roll-in">Replication within the cluster and backup to Amazon S3</li>
-                <li class="fragment roll-in">Backup to Amazon S3 are continuous, automatic and incremental</li>
-                <li class="fragment roll-in">Continuous monitoring and automated recovery from failures</li>
-                <li class="fragment roll-in">Able to restore snapshots to any Availability Zone</li>
-            </ul>
-        </section>
+<section>
+    <section>
+        <h1>Use Cases</h1>
+    </section>
 
-        <section>
-            <section>
-                <h1>Use Cases</h1>
-            </section>
+    <section>
+        <h2>Traditional Enterprise DW</h2>
+        <ul>
+            <li class="fragment roll-in">Reduce costs by extending DW rather than adding HW</li>
+            <li class="fragment roll-in">Migrate completely from existing DW systems</li>
+            <li class="fragment roll-in">Respond faster to business</li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Traditional Enterprise DW</h2>
-                <ul>
-                    <li class="fragment roll-in">Reduce costs by extending DW rather than adding HW</li>
-                    <li class="fragment roll-in">Migrate completely from existing DW systems</li>
-                    <li class="fragment roll-in">Respond faster to business</li>
-                </ul>
-            </section>
+    <section>
+        <h2>Companies with Big Data</h2>
+        <ul>
+            <li class="fragment roll-in">Improve performance by an order of magnitude</li>
+            <li class="fragment roll-in">Make more data available for analysis</li>
+            <li class="fragment roll-in">Access business data via standard reporting tools</li>
+        </ul>
+    </section>
 
-            <section>
-                <h2>Companies with Big Data</h2>
-                <ul>
-                    <li class="fragment roll-in">Improve performance by an order of magnitude</li>
-                    <li class="fragment roll-in">Make more data available for analysis</li>
-                    <li class="fragment roll-in">Access business data via standard reporting tools</li>
-                </ul>
-            </section>
+    <section>
+        <h2>SaaS Companies</h2>
+        <ul>
+            <li class="fragment roll-in">Add analytic functionality to applications</li>
+            <li class="fragment roll-in">Scale DW capacity as demand grows</li>
+            <li class="fragment roll-in">Reduce HW and SW costs by an order of magnitude</li>
+        </ul>
+    </section>
+</section>
 
-            <section>
-                <h2>SaaS Companies</h2>
-                <ul>
-                    <li class="fragment roll-in">Add analytic functionality to applications</li>
-                    <li class="fragment roll-in">Scale DW capacity as demand grows</li>
-                    <li class="fragment roll-in">Reduce HW and SW costs by an order of magnitude</li>
-                </ul>
-            </section>
-        </section>
+<section>
+    <h2>Best Practices</h2>
+    <ul>
+        <li class="fragment roll-in">Avoid large number of singleton Data Manipulation Language (DML) statements if
+            possible
+        </li>
+        <li class="fragment roll-in">Use <span class="focus">COPY</span> for uploading large datasets</li>
+        <li class="fragment roll-in">Choose <span class="focus">SORT</span> and <span class="focus">DISTRIBUTION</span>
+            keys with care
+        </li>
+        <li class="fragment roll-in">Encode data and time with <span class="focus">TIMESTAMP</span> data type</li>
+        <li class="fragment roll-in">Experiment with <span class="focus">WLM (Workload Manager)</span> settings</li>
+    </ul>
+</section>
 
-        <section data-state="soothe">
-            <h1>THE END</h1>
+<section>
+    <h1>Slides</h1>
 
-            <h3>by Abdullah Cetin CAVDAR / @accavdar</h3>
-        </section>
+    <a href="https://github.com/accavdar/AmazonRedshift" title="Introduction to Amazon Redshift">https://github.com/accavdar/AmazonRedshift</a>
+</section>
 
-    </div>
+
+<section data-state="soothe">
+    <h1>THE END</h1>
+
+    <h3>by Abdullah Cetin CAVDAR / @accavdar</h3>
+</section>
+
+</div>
 
 </div>
 
